@@ -151,7 +151,7 @@ var commands = {
     "whosyourdaddy": {
         description: "Prints the ~~devs~~ daddies of Waterlily to the channel.",
         process: function(bot, msg, suffix) {
-            bot.sendMessage(msg.channel, "Based off of <@110462073074388992> Edited by <@108269130930528256>. <3");
+            bot.sendMessage(msg.channel, "Based off of <@110462073074388992>(https://github.com/SteamingMutt/DougleyBot) Edited by <@108269130930528256>. <3");
         }
     },
     "chaos": {
