@@ -4,7 +4,7 @@
   Everytime a message matches a command, the bot will respond.
 ========================
 */
-var version = "0.1.0";
+var version = "1.1.0";
 
 var Discord = require("discord.js");
 
@@ -154,6 +154,13 @@ var commands = {
             bot.sendMessage(msg.channel, "Based off of <@110462073074388992> Edited by <@108269130930528256>. <3");
         }
     },
+    "chaos": {
+    	description: "Creates a 'say' flood.",
+    	adminOnly: true,
+    	process: function(bot, msg, suffix) {
+    		bot.sendMessage(msg.channel, "!say `say >repeat !say `say >repeat !say `say >repeat !say `say >repeat ");
+    	}
+    },
     "whatsup": {
         description: "Prints the stats from the instance into the chat.",
         process: function(bot, msg, suffix) {
@@ -218,12 +225,12 @@ var commands = {
         description: "Returns the user id of the sender.",
         process: function(bot,msg){bot.sendMessage(msg.channel,msg.author.id);}
     },
-    "shuteye": {
-        description: "Waterlily gets some shut eye.",
+    "idlemode": {
+        description: "Waterlily closes her petals",
         adminOnly: true,
         process: function(bot,msg){ bot.setStatusIdle();}
     },
-    "shelovesmeshedoesnt": {
+    "shelovesme": {
         description: "Tear out all the petals of Waterlily.",
         adminOnly: true,
         process: function(bot,msg){
@@ -231,8 +238,8 @@ var commands = {
             console.log("Disconnected via killswitch!");
             process.exit(0);} //exit node.js without an error
     },
-    "wakeywakey": {
-        description: "Eggs and bakey!",
+    "onlinemode": {
+        description: "Waterlily opens her petals again.",
         adminOnly: true,
         process: function(bot,msg){ bot.setStatusOnline();}            
     },
@@ -330,7 +337,7 @@ var commands = {
             console.log(msg.content);
         }
     },
-    "wiki": {
+    "whatis": {
         usage: "<search terms>",
         description: "Returns the summary of the first matching search result from Wikipedia.",
         timeout: 10, // In seconds
