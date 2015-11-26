@@ -151,7 +151,7 @@ var commands = {
     "whosyourdaddy": {
         description: "Prints the ~~devs~~ daddies of Waterlily to the channel.",
         process: function(bot, msg, suffix) {
-            bot.sendMessage(msg.channel, "Initial design by <@107904023901777920> and <@108125505714139136>. Edited by <@108269130930528256>. <3");
+            bot.sendMessage(msg.channel, "Based off of <@110462073074388992> Edited by <@108269130930528256>. <3");
         }
     },
     "whatsup": {
@@ -228,13 +228,13 @@ var commands = {
         adminOnly: true,
         process: function(bot,msg){
           bot.sendMessage(msg.channel,"She definitely doesn't.");
-            console.log("Disconnected via shelovesmeshedoesnt!");
+            console.log("Disconnected via killswitch!");
             process.exit(0);} //exit node.js without an error
     },
     "wakeywakey": {
         description: "Eggs and bakey!",
         adminOnly: true,
-        process: function(bot,msg){ bot.setStatusOnline();}
+        process: function(bot,msg){ bot.setStatusOnline();}            
     },
     "youtube": {
         usage: "<video tags>",
@@ -509,7 +509,7 @@ This will work, so long as the bot isn't overloaded or still busy.
 
 bot.on("message", function (msg) {
 	// check if message is a command
-	if(msg.author.id != bot.user.id && (msg.content[0] === '@119478930343198720' || msg.content.indexOf(bot.user.mention()) === 0)){
+	if(msg.author.id != bot.user.id && (msg.content[0] === '>' || msg.content.indexOf(bot.user.mention()) === 0)){
         if(msg.author.equals(bot.user)) { return; }
         console.log("treating " + msg.content + " from " + msg.author + " as command");
 		var cmdTxt = msg.content.split(" ")[0].substring(1);
@@ -518,9 +518,9 @@ bot.on("message", function (msg) {
 		var cmd = commands[cmdTxt];
         if(cmdTxt === "help"){
             //help is special since it iterates over the other commands
-            bot.sendMessage(msg.channel, msg.sender+", I've send you a list of commands via DM.");
+            bot.sendMessage(msg.channel, msg.sender+", here are the commands! Wouldn't want to spam the chat.");
             for(var cmd in commands) {
-                var info = "@119478930343198720" + cmd;
+                var info = ">"+ cmd;
                 var usage = commands[cmd].usage;
                 if(usage){
                     info += " " + usage;
@@ -655,3 +655,4 @@ function get_gif(tags, func) {
     }
 
 bot.login(AuthDetails.email, AuthDetails.password);
+
