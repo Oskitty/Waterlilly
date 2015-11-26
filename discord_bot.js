@@ -228,7 +228,7 @@ var commands = {
         adminOnly: true,
         process: function(bot,msg){
           bot.sendMessage(msg.channel,"She definitely doesn't.");
-            console.log("Disconnected via killswitch!");
+            console.log("Disconnected via shelovesmeshedoesnt!");
             process.exit(0);} //exit node.js without an error
     },
     "wakeywakey": {
@@ -509,7 +509,7 @@ This will work, so long as the bot isn't overloaded or still busy.
 
 bot.on("message", function (msg) {
 	// check if message is a command
-	if(msg.author.id != bot.user.id && (msg.content[0] === '!' || msg.content.indexOf(bot.user.mention()) === 0)){
+	if(msg.author.id != bot.user.id && (msg.content[0] === '@119478930343198720' || msg.content.indexOf(bot.user.mention()) === 0)){
         if(msg.author.equals(bot.user)) { return; }
         console.log("treating " + msg.content + " from " + msg.author + " as command");
 		var cmdTxt = msg.content.split(" ")[0].substring(1);
@@ -520,7 +520,7 @@ bot.on("message", function (msg) {
             //help is special since it iterates over the other commands
             bot.sendMessage(msg.channel, msg.sender+", I've send you a list of commands via DM.");
             for(var cmd in commands) {
-                var info = "@Waterlily" + cmd;
+                var info = "@119478930343198720" + cmd;
                 var usage = commands[cmd].usage;
                 if(usage){
                     info += " " + usage;
