@@ -168,7 +168,7 @@ var commands = {
             msgArray.push("My uptime is " + (Math.round(bot.uptime/(1000*60*60))) + " hours, " + (Math.round(bot.uptime/(1000*60))%60) + " minutes, and " + (Math.round(bot.uptime/1000)%60) + " seconds.");
             msgArray.push("Currently, I'm in " + bot.servers.length + " servers, and in " + bot.channels.length + " channels.");
             msgArray.push("Currently, I'm serving " + bot.users.length + " users.");
-            msgArray.push("To Discord, I'm known as " + bot.user + ", and I'm running DougleyBot version " + version);
+            msgArray.push("To Discord, I'm known as " + bot.user + ", and I'm running an edited DougleyBot version " + version);
             bot.sendMessage(msg, msgArray);
         }
     },
