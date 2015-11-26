@@ -154,13 +154,13 @@ var commands = {
             bot.sendMessage(msg.channel, "Based off of <@110462073074388992> (https://github.com/SteamingMutt/DougleyBot) Edited by <@108269130930528256>. <3");
         }
     },
-    "chaos": {
+/*    "chaos": {
     	description: "Creates a 'say' flood.",
     	adminOnly: true,
     	process: function(bot, msg, suffix) {
     		bot.sendMessage(msg.channel, "!say `say >repeat !say `say >repeat !say `say >repeat !say `say >repeat ");
     	}
-    },
+    },*/
     "whatsup": {
         description: "Prints the stats from the instance into the chat.",
         process: function(bot, msg, suffix) {
