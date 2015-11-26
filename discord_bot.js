@@ -4,7 +4,7 @@
   Everytime a message matches a command, the bot will respond.
 ========================
 */
-var version = "1.1.0";
+var version = "1.1.2";
 
 var Discord = require("discord.js");
 
