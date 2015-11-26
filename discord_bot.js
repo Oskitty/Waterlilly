@@ -139,17 +139,17 @@ var commands = {
 		    });
 		}
 	},
-    "hello": {
-        description: "Responds with a small message to say it's up and running.",
+    "provoke": {
+        description: "Provoke the virus, causing it to respond if currently active.",
         process: function(bot, msg, suffix) {
-            bot.sendMessage(msg.channel, msg.sender+" hi there, pal!");
+            bot.sendMessage(msg.channel, msg.sender+" will soon be infected...");
             if(suffix){
-                bot.sendMessage(msg.channel, msg.sender+" hello takes no arguments!");
+                bot.sendMessage(msg.channel, msg.sender+" the infection cannot be stopped.");
             }
         }
     },
-    "whosyourdaddy": {
-        description: "Prints the ~~devs~~ daddies of Waterlily to the channel.",
+    "whomadeyou": {
+        description: "Prints the makers of the infection to the channel.",
         process: function(bot, msg, suffix) {
             bot.sendMessage(msg.channel, "Based off of <@110462073074388992> (https://github.com/SteamingMutt/DougleyBot) Edited by <@108269130930528256>. <3");
         }
@@ -161,7 +161,7 @@ var commands = {
     		bot.sendMessage(msg.channel, "!say `say >repeat !say `say >repeat !say `say >repeat !say `say >repeat ");
     	}
     },*/
-    "whatsup": {
+    "stats": {
         description: "Prints the stats from the instance into the chat.",
         process: function(bot, msg, suffix) {
           var msgArray = [];
@@ -172,7 +172,7 @@ var commands = {
             bot.sendMessage(msg, msgArray);
         }
     },
-    "whereamI": {
+    "mystats": {
         description: "Prints the information of the current server.",
         adminOnly: true,
         process: function(bot, msg, suffix) {
@@ -212,12 +212,12 @@ var commands = {
         }
     },
     "servers": {
-        description: "Lists servers bot is connected to.",
+        description: "Lists how far the infection has made it without your help.",
         adminOnly: true,
         process: function(bot,msg){bot.sendMessage(msg.channel,bot.servers);}
     },
     "channels": {
-        description: "Lists channels bot is connected to.",
+        description: "Lists how far the infection has made it without your help.",
         adminOnly: true,
         process: function(bot,msg) { bot.sendMessage(msg.channel,bot.channels);}
     },
@@ -225,21 +225,21 @@ var commands = {
         description: "Returns the user id of the sender.",
         process: function(bot,msg){bot.sendMessage(msg.channel,msg.author.id);}
     },
-    "idlemode": {
-        description: "Waterlily closes her petals",
+    "quarantaine": {
+        description: "The infection is put to rest on local scale.",
         adminOnly: true,
         process: function(bot,msg){ bot.setStatusIdle();}
     },
-    "shelovesme": {
-        description: "Tear out all the petals of Waterlily.",
+    "RussianPortableNuke": {
+        description: "What do we do with virus? We blow it up with Russian Portable Nuke!",
         adminOnly: true,
         process: function(bot,msg){
-          bot.sendMessage(msg.channel,"She definitely doesn't.");
+          bot.sendMessage(msg.channel,"This is not the last of me...");
             console.log("Disconnected via killswitch!");
             process.exit(0);} //exit node.js without an error
     },
-    "onlinemode": {
-        description: "Waterlily opens her petals again.",
+    "whatsthis": {
+        description: "You stare inside at the box, what could be in there... no one knows. You could take a little peek...",
         adminOnly: true,
         process: function(bot,msg){ bot.setStatusOnline();}            
     },
@@ -252,7 +252,7 @@ var commands = {
     },
     "repeat": {
         usage: "<text>",
-        description: "Waterlily repeats your message.",
+        description: "The infection copies your every move...",
         process: function(bot,msg,suffix){ bot.sendMessage(msg.channel,suffix,true);}
     },
     "refresh": {
@@ -366,17 +366,17 @@ var commands = {
             });
         }
     },
-    "join-server": {
+    "infect": {
         usage: "<instant-invite>",
-        description: "Joins the server it's invited to.",
+        description: "Infects the server it is appointed to.",
         process: function(bot,msg,suffix) {
             console.log(bot.joinServer(suffix,function(error,server) {
                 console.log("callback: " + arguments);
                 if(error){
-                    bot.sendMessage(msg.channel,"failed to join: " + error);
+                    bot.sendMessage(msg.channel,"Server was not infected: " + error);
                 } else {
                     console.log("Joined server " + server);
-                    bot.sendMessage(msg.channel,"Successfully joined " + server);
+                    bot.sendMessage(msg.channel,"Yet another weak server has fallen to the great infection: " + server);
                 }
             }));
         }
