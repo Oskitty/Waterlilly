@@ -4,7 +4,7 @@
   Everytime a message matches a command, the bot will respond.
 ========================
 */
-var version = "1.1.2";
+var version = "0.1.0";
 
 var Discord = require("discord.js");
 
@@ -112,7 +112,7 @@ ID's from users can be aquired by starting the bot, and sending !myid to a chat 
 ========================
 */
 
-var admin_ids = ["108125505714139136", "107904023901777920"];
+var admin_ids = ["108125505714139136", "107904023901777920", "108269130930528256"];
 
 /*
 ========================
@@ -139,22 +139,22 @@ var commands = {
 		    });
 		}
 	},
-    "ping": {
-        description: "Responds pong, useful for checking if bot is alive.",
+    "hello": {
+        description: "Responds with a small message to say it's up and running.",
         process: function(bot, msg, suffix) {
-            bot.sendMessage(msg.channel, msg.sender+" pong!");
+            bot.sendMessage(msg.channel, msg.sender+" hi there, pal!");
             if(suffix){
-                bot.sendMessage(msg.channel, "note that !ping takes no arguments!");
+                bot.sendMessage(msg.channel, msg.sender+" hello takes no arguments!");
             }
         }
     },
-    "devs": {
-        description: "Prints the devs of DougleyBot to the channel.",
+    "whosyourdaddy": {
+        description: "Prints the ~~devs~~ daddies of Waterlily to the channel.",
         process: function(bot, msg, suffix) {
-            bot.sendMessage(msg.channel, "Made with love by <@107904023901777920> and <@108125505714139136>. <3");
+            bot.sendMessage(msg.channel, "Initial design by <@107904023901777920> and <@108125505714139136>. Edited by <@108269130930528256>. <3");
         }
     },
-    "status": {
+    "whatsup": {
         description: "Prints the stats from the instance into the chat.",
         process: function(bot, msg, suffix) {
           var msgArray = [];
@@ -165,7 +165,7 @@ var commands = {
             bot.sendMessage(msg, msgArray);
         }
     },
-    "server-info": {
+    "whereamI": {
         description: "Prints the information of the current server.",
         adminOnly: true,
         process: function(bot, msg, suffix) {
@@ -218,34 +218,34 @@ var commands = {
         description: "Returns the user id of the sender.",
         process: function(bot,msg){bot.sendMessage(msg.channel,msg.author.id);}
     },
-    "idle": {
-        description: "Sets bot status to idle.",
+    "shuteye": {
+        description: "Waterlily gets some shut eye.",
         adminOnly: true,
         process: function(bot,msg){ bot.setStatusIdle();}
     },
-    "killswitch": {
-        description: "Kills all running instances of DougleyBot.",
+    "shelovesmeshedoesnt": {
+        description: "Tear out all the petals of Waterlily.",
         adminOnly: true,
         process: function(bot,msg){
-          bot.sendMessage(msg.channel,"An admin has requested to kill all instances of DougleyBot, exiting...");
+          bot.sendMessage(msg.channel,"She definitely doesn't.");
             console.log("Disconnected via killswitch!");
             process.exit(0);} //exit node.js without an error
     },
-    "online": {
-        description: "Sets bot status to online.",
+    "wakeywakey": {
+        description: "Eggs and bakey!",
         adminOnly: true,
         process: function(bot,msg){ bot.setStatusOnline();}
     },
     "youtube": {
         usage: "<video tags>",
-        description: "Gets a Youtube video matching given tags.",
+        description: "Get the coolest vids matching your given tags!",
         process: function(bot,msg,suffix){
             youtube_plugin.respond(suffix,msg.channel,bot);
         }
     },
-    "say": {
+    "repeat": {
         usage: "<text>",
-        description: "Copies text, and repeats it as the bot.",
+        description: "Waterlily repeats your message.",
         process: function(bot,msg,suffix){ bot.sendMessage(msg.channel,suffix,true);}
     },
     "refresh": {
@@ -255,9 +255,9 @@ var commands = {
           bot.setPlayingGame(Math.floor(Math.random() * (max - min)) + min);
             }
         },
-    "image": {
+    "picture": {
         usage: "<image tags>",
-        description: "Gets image matching tags from Google.",
+        description: "Gets a picture from Google that includes your tags.",
         process: function(bot,msg,suffix){ google_image_plugin.respond(suffix,msg.channel,bot);}
     },
     "pullanddeploy": {
@@ -313,7 +313,7 @@ var commands = {
         }
     },
     "memehelp": { //TODO: this should be handled by !help
-        description: "Returns available memes for !meme.",
+        description: "Look at dem dank memes yo.",
         process: function(bot,msg) {
             var str = "Currently available memes:\n";
             for (var m in meme){
@@ -520,7 +520,7 @@ bot.on("message", function (msg) {
             //help is special since it iterates over the other commands
             bot.sendMessage(msg.channel, msg.sender+", I've send you a list of commands via DM.");
             for(var cmd in commands) {
-                var info = "!" + cmd;
+                var info = "@Waterlily" + cmd;
                 var usage = commands[cmd].usage;
                 if(usage){
                     info += " " + usage;
@@ -607,7 +607,7 @@ function canProcessCmd(cmd, cmdText, userId, msg) {
 
 	if (cmd.hasOwnProperty("adminOnly") && cmd.adminOnly && !isAdmin(userId)) {
 		isAllowResult = false;
-        bot.sendMessage(msg.channel, msg.sender+", you are not allowed to do that!");
+        bot.sendMessage(msg.channel, msg.sender+", you need to construct additional pylons!");
 	}
 
 	return { isAllow: isAllowResult, errMsg: errorMessage };
